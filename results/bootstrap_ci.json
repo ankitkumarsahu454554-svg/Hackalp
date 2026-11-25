@@ -1,0 +1,178 @@
+{
+  "block_minutes": 30,
+  "n_blocks": 13,
+  "bootstrap_reps": 500,
+  "model_cis": {
+    "B0_base_rate": {
+      "pr_auc": {
+        "bootstrap_mean": 0.09622097591280157,
+        "ci_low": 0.030395136778115502,
+        "ci_high": 0.17252784385813147,
+        "valid_reps": 498
+      },
+      "brier_score": {
+        "bootstrap_mean": 0.09244342163716147,
+        "ci_low": 0.028640417431891413,
+        "ci_high": 0.1660541352040994,
+        "valid_reps": 500
+      },
+      "event_onset_recall": {
+        "bootstrap_mean": 0.0,
+        "ci_low": 0.0,
+        "ci_high": 0.0,
+        "valid_reps": 498
+      }
+    },
+    "B1_oracle_persistence": {
+      "pr_auc": {
+        "bootstrap_mean": 0.2843514219016982,
+        "ci_low": 0.046566098545038764,
+        "ci_high": 0.5793770525727043,
+        "valid_reps": 498
+      },
+      "brier_score": {
+        "bootstrap_mean": 0.0819509510066774,
+        "ci_low": 0.032820708988204134,
+        "ci_high": 0.1344635126454727,
+        "valid_reps": 500
+      },
+      "event_onset_recall": {
+        "bootstrap_mean": 0.45998863920550676,
+        "ci_low": 0.0,
+        "ci_high": 1.0,
+        "valid_reps": 498
+      }
+    },
+    "B2_anomaly_persistence": {
+      "pr_auc": {
+        "bootstrap_mean": 0.13474113458886278,
+        "ci_low": 0.0344318112506914,
+        "ci_high": 0.2684076811416844,
+        "valid_reps": 498
+      },
+      "brier_score": {
+        "bootstrap_mean": 0.09174939018344078,
+        "ci_low": 0.03709869521200819,
+        "ci_high": 0.1578520012031389,
+        "valid_reps": 500
+      },
+      "event_onset_recall": {
+        "bootstrap_mean": 0.0,
+        "ci_low": 0.0,
+        "ci_high": 0.0,
+        "valid_reps": 498
+      }
+    },
+    "B3_logistic_regression": {
+      "pr_auc": {
+        "bootstrap_mean": 0.2161044020380489,
+        "ci_low": 0.04155615384132504,
+        "ci_high": 0.4458280307052757,
+        "valid_reps": 498
+      },
+      "brier_score": {
+        "bootstrap_mean": 0.19753979826886336,
+        "ci_low": 0.07497803424067784,
+        "ci_high": 0.36434550668658894,
+        "valid_reps": 500
+      },
+      "event_onset_recall": {
+        "bootstrap_mean": 0.45393518239903785,
+        "ci_low": 0.0,
+        "ci_high": 1.0,
+        "valid_reps": 498
+      }
+    },
+    "xgboost_forecaster": {
+      "pr_auc": {
+        "bootstrap_mean": 0.301433330535501,
+        "ci_low": 0.05620912100434473,
+        "ci_high": 0.5966320507664387,
+        "valid_reps": 498
+      },
+      "brier_score": {
+        "bootstrap_mean": 0.08353157206546026,
+        "ci_low": 0.03085223337478989,
+        "ci_high": 0.1417498122156752,
+        "valid_reps": 500
+      },
+      "event_onset_recall": {
+        "bootstrap_mean": 0.6564286505551566,
+        "ci_low": 0.0,
+        "ci_high": 1.0,
+        "valid_reps": 498
+      }
+    }
+  },
+  "paired_differences": {
+    "xgboost_forecaster_minus_B0_base_rate": {
+      "pr_auc": {
+        "mean_diff": 0.20521235462269943,
+        "ci_low": 0.005551558268274087,
+        "ci_high": 0.4833082628180595,
+        "excludes_zero": true,
+        "valid_reps": 498
+      },
+      "brier_score": {
+        "mean_diff": -0.008911849571701205,
+        "ci_low": -0.022918873786086712,
+        "ci_high": 0.0022393306420082164,
+        "excludes_zero": false,
+        "valid_reps": 500
+      },
+      "event_onset_recall": {
+        "mean_diff": 0.6564286505551566,
+        "ci_low": 0.0,
+        "ci_high": 1.0,
+        "excludes_zero": false,
+        "valid_reps": 498
+      }
+    },
+    "xgboost_forecaster_minus_B2_anomaly_persistence": {
+      "pr_auc": {
+        "mean_diff": 0.1666921959466382,
+        "ci_low": -0.07765824828958812,
+        "ci_high": 0.4514594258844709,
+        "excludes_zero": false,
+        "valid_reps": 498
+      },
+      "brier_score": {
+        "mean_diff": -0.00821781811798051,
+        "ci_low": -0.018102619324544718,
+        "ci_high": 0.00014761086955544987,
+        "excludes_zero": false,
+        "valid_reps": 500
+      },
+      "event_onset_recall": {
+        "mean_diff": 0.6564286505551566,
+        "ci_low": 0.0,
+        "ci_high": 1.0,
+        "excludes_zero": false,
+        "valid_reps": 498
+      }
+    },
+    "xgboost_forecaster_minus_B3_logistic_regression": {
+      "pr_auc": {
+        "mean_diff": 0.08532892849745213,
+        "ci_low": -0.020092461615253635,
+        "ci_high": 0.24333346368866587,
+        "excludes_zero": false,
+        "valid_reps": 498
+      },
+      "brier_score": {
+        "mean_diff": -0.1140082262034031,
+        "ci_low": -0.2534498951952794,
+        "ci_high": -0.021831870329223096,
+        "excludes_zero": true,
+        "valid_reps": 500
+      },
+      "event_onset_recall": {
+        "mean_diff": 0.20249346815611874,
+        "ci_low": -0.5,
+        "ci_high": 1.0,
+        "excludes_zero": false,
+        "valid_reps": 498
+      }
+    }
+  }
+}

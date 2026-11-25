@@ -1,0 +1,107 @@
+{
+  "component": "DETECTION",
+  "method": "shap_tree_explainer",
+  "explained_rows": 2000,
+  "top_features": [
+    {
+      "feature": "Dst Port",
+      "importance": 0.6295821070671082
+    },
+    {
+      "feature": "Fwd Packet Length Max",
+      "importance": 0.570138692855835
+    },
+    {
+      "feature": "Bwd Packet Length Max",
+      "importance": 0.47432902455329895
+    },
+    {
+      "feature": "Active Min",
+      "importance": 0.3841870427131653
+    },
+    {
+      "feature": "Bwd Init Win Bytes",
+      "importance": 0.31654679775238037
+    },
+    {
+      "feature": "Bwd IAT Max",
+      "importance": 0.3117355406284332
+    },
+    {
+      "feature": "Fwd PSH Flags",
+      "importance": 0.2943353056907654
+    },
+    {
+      "feature": "Fwd Packet Length Mean",
+      "importance": 0.2512316107749939
+    },
+    {
+      "feature": "Total Length of Bwd Packet",
+      "importance": 0.22420614957809448
+    },
+    {
+      "feature": "Bwd IAT Mean",
+      "importance": 0.2079191654920578
+    },
+    {
+      "feature": "Bwd IAT Total",
+      "importance": 0.1977812498807907
+    },
+    {
+      "feature": "Total TCP Flow Time",
+      "importance": 0.19738927483558655
+    },
+    {
+      "feature": "Bwd Packet Length Mean",
+      "importance": 0.1964425891637802
+    },
+    {
+      "feature": "Fwd IAT Max",
+      "importance": 0.1785956770181656
+    },
+    {
+      "feature": "Bwd Packet Length Std",
+      "importance": 0.17398786544799805
+    },
+    {
+      "feature": "Fwd Header Length",
+      "importance": 0.15864022076129913
+    },
+    {
+      "feature": "Packet Length Max",
+      "importance": 0.15382139384746552
+    },
+    {
+      "feature": "Fwd RST Flags",
+      "importance": 0.1466296911239624
+    },
+    {
+      "feature": "Total Length of Fwd Packet",
+      "importance": 0.14489640295505524
+    },
+    {
+      "feature": "Packet Length Std",
+      "importance": 0.118868887424469
+    },
+    {
+      "feature": "Fwd Packet Length Std",
+      "importance": 0.11653729528188705
+    },
+    {
+      "feature": "Total Bwd packets",
+      "importance": 0.11642888933420181
+    },
+    {
+      "feature": "Bwd IAT Min",
+      "importance": 0.10302609950304031
+    },
+    {
+      "feature": "FIN Flag Count",
+      "importance": 0.10134153813123703
+    },
+    {
+      "feature": "Fwd Seg Size Min",
+      "importance": 0.09773370623588562
+    }
+  ]
+}

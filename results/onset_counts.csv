@@ -1,0 +1,6 @@
+day,utc_date,total_minutes,segments,attack_active_minutes,onset_events,attack_flow_starts
+monday,2017-07-03,487,1,0,0,0
+tuesday,2017-07-04,488,1,125,2,6933
+wednesday,2017-07-05,509,1,65,3,171645
+thursday,2017-07-06,486,1,39,4,71907
+friday,2017-07-07,484,1,84,8,254946

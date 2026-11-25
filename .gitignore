@@ -1,0 +1,25 @@
+# Python caches and environments
+__pycache__/
+*.py[cod]
+*$py.class
+.pytest_cache/
+.venv/
+venv/
+env/
+.env
+.env.*
+
+# Raw and processed large data artifacts
+data/raw/*.zip
+data/raw/*.part
+data/raw/*.csv
+data/raw/extracted/
+data/processed/*.parquet
+
+# Trained model binaries
+models/*.joblib
+
+# Large optional replay dump & OS artifacts
+results/replay_alerts.json
+.DS_Store
+Thumbs.db

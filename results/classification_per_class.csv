@@ -1,0 +1,27 @@
+model,variant,class,seen_in_training,precision,recall,f1,support
+random_forest,with_dst_port,BENIGN,true,0.46505414345896123,1.0,0.63486273942201,65794
+random_forest,with_dst_port,Botnet,false,0.0,0.0,0.0,540
+random_forest,with_dst_port,DDoS,false,0.0,0.0,0.0,30663
+random_forest,with_dst_port,DoS GoldenEye,true,0.0,0.0,0.0,0
+random_forest,with_dst_port,DoS Hulk,true,0.0,0.0,0.0,0
+random_forest,with_dst_port,Portscan,false,0.0,0.0,0.0,53003
+xgboost,with_dst_port,BENIGN,true,0.5436074134668617,0.9999240052284403,0.704314917807266,65794
+xgboost,with_dst_port,Botnet,false,0.0,0.0,0.0,540
+xgboost,with_dst_port,DDoS,false,0.0,0.0,0.0,30663
+xgboost,with_dst_port,DoS GoldenEye,true,0.0,0.0,0.0,0
+xgboost,with_dst_port,DoS Hulk,true,0.0,0.0,0.0,0
+xgboost,with_dst_port,Portscan,false,0.0,0.0,0.0,53003
+xgboost,with_dst_port,Web Attack - SQL Injection,true,0.0,0.0,0.0,0
+random_forest,without_dst_port,BENIGN,true,0.4784183124400105,1.0,0.6472029038255344,65794
+random_forest,without_dst_port,Botnet,false,0.0,0.0,0.0,540
+random_forest,without_dst_port,DDoS,false,0.0,0.0,0.0,30663
+random_forest,without_dst_port,DoS GoldenEye,true,0.0,0.0,0.0,0
+random_forest,without_dst_port,DoS Hulk,true,0.0,0.0,0.0,0
+random_forest,without_dst_port,Portscan,false,0.0,0.0,0.0,53003
+xgboost,without_dst_port,BENIGN,true,0.511653769879846,0.9999544031370642,0.6769352656408357,65794
+xgboost,without_dst_port,Botnet,false,0.0,0.0,0.0,540
+xgboost,without_dst_port,DDoS,false,0.0,0.0,0.0,30663
+xgboost,without_dst_port,DoS GoldenEye,true,0.0,0.0,0.0,0
+xgboost,without_dst_port,DoS Hulk,true,0.0,0.0,0.0,0
+xgboost,without_dst_port,Portscan,false,0.0,0.0,0.0,53003
+xgboost,without_dst_port,Web Attack - SQL Injection,true,0.0,0.0,0.0,0

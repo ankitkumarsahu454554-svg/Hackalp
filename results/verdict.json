@@ -1,0 +1,25 @@
+{
+  "verdict": "NOT DISTINGUISHABLE",
+  "rationale": "XGBoost forecaster PR-AUC 95% paired bootstrap intervals overlap zero against deployable baselines (vs B2: [-0.07765824828958812, 0.4514594258844709], vs B3: [-0.020092461615253635, 0.24333346368866587]).",
+  "split_onsets": {
+    "train_onsets": 6,
+    "val_onsets": 5,
+    "test_onsets": 6,
+    "train_positive_rows": 25,
+    "val_positive_rows": 25,
+    "test_positive_rows": 30,
+    "train_eligible_rows": 1267,
+    "val_eligible_rows": 349,
+    "test_eligible_rows": 314
+  },
+  "xgboost_5seed_ensemble_test_pr_auc": 0.3224251770142542,
+  "b2_anomaly_test_pr_auc": 0.11891099152153366,
+  "b3_logreg_test_pr_auc": 0.20431787035130744,
+  "b0_baserate_test_pr_auc": 0.09554140127388536,
+  "b1_oracle_reference_not_deployable": {
+    "pr_auc": 0.26028505472895347,
+    "brier_score": 0.08116524328033342,
+    "event_onset_recall": 0.5,
+    "note": "ORACLE REFERENCE \u2014 NOT DEPLOYABLE (uses past true labels)."
+  }
+}

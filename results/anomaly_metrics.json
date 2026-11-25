@@ -1,0 +1,226 @@
+{
+  "fit_period": "flows_monday.parquet",
+  "verified_label_checks": [
+    {
+      "file": "flows_monday.parquet",
+      "attack_rows": 0,
+      "non_benign_clean_rows": 0,
+      "non_benign_raw_rows": 0
+    },
+    {
+      "file": "flows_tuesday.parquet",
+      "attack_rows": 6933,
+      "non_benign_clean_rows": 6933,
+      "non_benign_raw_rows": 6972
+    },
+    {
+      "file": "flows_wednesday.parquet",
+      "attack_rows": 171645,
+      "non_benign_clean_rows": 171645,
+      "non_benign_raw_rows": 177521
+    },
+    {
+      "file": "flows_thursday.parquet",
+      "attack_rows": 71907,
+      "non_benign_clean_rows": 71907,
+      "non_benign_raw_rows": 73904
+    },
+    {
+      "file": "flows_friday.parquet",
+      "attack_rows": 254946,
+      "non_benign_clean_rows": 254946,
+      "non_benign_raw_rows": 259013
+    }
+  ],
+  "fit_period_total_rows": 371624,
+  "fit_rows_used": 150000,
+  "discarded_excess_fit_rows": 147299,
+  "calibration_rows_benign_tail": 74325,
+  "discarded_from_out_of_time_eval_rows": 371624,
+  "threshold_percentile": 95.0,
+  "threshold": 0.5181148052215576,
+  "threshold_p99_reference": 0.5977221131324768,
+  "note": "Anomaly scores measure deviation from verified BENIGN baseline; NOT a probability of attack. Fitting and calibration rows are strictly excluded from out-of-time deployment metrics.",
+  "out_of_time_later_days_flows": 1728352,
+  "out_of_time_attack_prevalence": 0.2924352215289478,
+  "out_of_time_roc_auc": 0.8691457852559346,
+  "out_of_time_pr_auc": 0.6060804570719539,
+  "holdout_family_anomaly_performance": {
+    "label": "DoS Hulk",
+    "total_out_of_time_flows": 158468,
+    "flagged_anomalous": 124488,
+    "detection_rate": 0.7855718504682333,
+    "mean_anomaly_score": 0.5291840730252706
+  },
+  "per_day": [
+    {
+      "day": "monday",
+      "is_fitting_or_calibration_period": true,
+      "included_in_out_of_time_eval": false,
+      "flows": 371624,
+      "attack_flows": 0,
+      "anomalous_rate": 0.05349223946784922,
+      "mean_anomaly_score": 0.37414562702178955,
+      "roc_auc": null,
+      "pr_auc": null
+    },
+    {
+      "day": "tuesday",
+      "is_fitting_or_calibration_period": false,
+      "included_in_out_of_time_eval": true,
+      "flows": 322078,
+      "attack_flows": 6933,
+      "anomalous_rate": 0.05884599382758214,
+      "mean_anomaly_score": 0.37410321831703186,
+      "roc_auc": 0.8102374614775611,
+      "pr_auc": 0.05644436922208805
+    },
+    {
+      "day": "wednesday",
+      "is_fitting_or_calibration_period": false,
+      "included_in_out_of_time_eval": true,
+      "flows": 496641,
+      "attack_flows": 171645,
+      "anomalous_rate": 0.3043868709993738,
+      "mean_anomaly_score": 0.426747590303421,
+      "roc_auc": 0.9526713725083019,
+      "pr_auc": 0.8004051648501493
+    },
+    {
+      "day": "thursday",
+      "is_fitting_or_calibration_period": false,
+      "included_in_out_of_time_eval": true,
+      "flows": 362076,
+      "attack_flows": 71907,
+      "anomalous_rate": 0.04027055093405804,
+      "mean_anomaly_score": 0.379413902759552,
+      "roc_auc": 0.8046294314274312,
+      "pr_auc": 0.3580550140696244
+    },
+    {
+      "day": "friday",
+      "is_fitting_or_calibration_period": false,
+      "included_in_out_of_time_eval": true,
+      "flows": 547557,
+      "attack_flows": 254946,
+      "anomalous_rate": 0.09666573525678605,
+      "mean_anomaly_score": 0.40455999970436096,
+      "roc_auc": 0.841722714947169,
+      "pr_auc": 0.7078853508692113
+    }
+  ],
+  "per_family_out_of_time_only": [
+    {
+      "label": "BENIGN",
+      "total_out_of_time_flows": 1222921,
+      "flagged_anomalous": 67252,
+      "detection_rate": 0.05499292268265898,
+      "mean_anomaly_score": 0.3718796673190157
+    },
+    {
+      "label": "Botnet",
+      "total_out_of_time_flows": 736,
+      "flagged_anomalous": 44,
+      "detection_rate": 0.059782608695652176,
+      "mean_anomaly_score": 0.3640298285805013
+    },
+    {
+      "label": "DDoS",
+      "total_out_of_time_flows": 95144,
+      "flagged_anomalous": 37587,
+      "detection_rate": 0.3950538131674094,
+      "mean_anomaly_score": 0.5148933933706237
+    },
+    {
+      "label": "DoS GoldenEye",
+      "total_out_of_time_flows": 7567,
+      "flagged_anomalous": 3511,
+      "detection_rate": 0.46398837055636316,
+      "mean_anomaly_score": 0.5229401263556425
+    },
+    {
+      "label": "DoS Hulk",
+      "total_out_of_time_flows": 158468,
+      "flagged_anomalous": 124488,
+      "detection_rate": 0.7855718504682333,
+      "mean_anomaly_score": 0.5291840730252706
+    },
+    {
+      "label": "DoS Slowhttptest",
+      "total_out_of_time_flows": 1740,
+      "flagged_anomalous": 1394,
+      "detection_rate": 0.8011494252873563,
+      "mean_anomaly_score": 0.5529247006808204
+    },
+    {
+      "label": "DoS Slowloris",
+      "total_out_of_time_flows": 3859,
+      "flagged_anomalous": 3092,
+      "detection_rate": 0.8012438455558435,
+      "mean_anomaly_score": 0.556229277846726
+    },
+    {
+      "label": "FTP-Patator",
+      "total_out_of_time_flows": 3972,
+      "flagged_anomalous": 0,
+      "detection_rate": 0.0,
+      "mean_anomaly_score": 0.4235577967546858
+    },
+    {
+      "label": "Heartbleed",
+      "total_out_of_time_flows": 11,
+      "flagged_anomalous": 11,
+      "detection_rate": 1.0,
+      "mean_anomaly_score": 0.6871495626189492
+    },
+    {
+      "label": "Infiltration",
+      "total_out_of_time_flows": 36,
+      "flagged_anomalous": 33,
+      "detection_rate": 0.9166666666666666,
+      "mean_anomaly_score": 0.6084444688426124
+    },
+    {
+      "label": "Infiltration - Portscan",
+      "total_out_of_time_flows": 71767,
+      "flagged_anomalous": 47,
+      "detection_rate": 0.0006548970975517995,
+      "mean_anomaly_score": 0.41277401397539093
+    },
+    {
+      "label": "Portscan",
+      "total_out_of_time_flows": 159066,
+      "flagged_anomalous": 84,
+      "detection_rate": 0.0005280826826600279,
+      "mean_anomaly_score": 0.4007168238553719
+    },
+    {
+      "label": "SSH-Patator",
+      "total_out_of_time_flows": 2961,
+      "flagged_anomalous": 2,
+      "detection_rate": 0.0006754474839581223,
+      "mean_anomaly_score": 0.4168308355123036
+    },
+    {
+      "label": "Web Attack - Brute Force",
+      "total_out_of_time_flows": 73,
+      "flagged_anomalous": 72,
+      "detection_rate": 0.9863013698630136,
+      "mean_anomaly_score": 0.5537184827948269
+    },
+    {
+      "label": "Web Attack - SQL Injection",
+      "total_out_of_time_flows": 13,
+      "flagged_anomalous": 0,
+      "detection_rate": 0.0,
+      "mean_anomaly_score": 0.38882577648529637
+    },
+    {
+      "label": "Web Attack - XSS",
+      "total_out_of_time_flows": 18,
+      "flagged_anomalous": 18,
+      "detection_rate": 1.0,
+      "mean_anomaly_score": 0.5990130868222978
+    }
+  ]
+}

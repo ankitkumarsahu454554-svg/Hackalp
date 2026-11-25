@@ -1,0 +1,108 @@
+{
+  "component": "FORECASTING",
+  "horizon_min": 5,
+  "method": "shap_tree_explainer",
+  "explained_rows": 663,
+  "top_features": [
+    {
+      "feature": "unique_src_ips_roll15_mean",
+      "importance": 0.8015862107276917
+    },
+    {
+      "feature": "unique_dst_ips_roll15_burst",
+      "importance": 0.4614851474761963
+    },
+    {
+      "feature": "short_flow_fraction_roll30_slope",
+      "importance": 0.27752742171287537
+    },
+    {
+      "feature": "mean_packet_length_roll5_max",
+      "importance": 0.27421092987060547
+    },
+    {
+      "feature": "unique_dst_ips_roll5_mean",
+      "importance": 0.22439239919185638
+    },
+    {
+      "feature": "anom_mean_roll30_max",
+      "importance": 0.22375759482383728
+    },
+    {
+      "feature": "unique_src_ips_roll30_mean",
+      "importance": 0.20597192645072937
+    },
+    {
+      "feature": "short_flow_fraction_roll15_slope",
+      "importance": 0.19807462394237518
+    },
+    {
+      "feature": "anom_mean_roll30_slope",
+      "importance": 0.17716991901397705
+    },
+    {
+      "feature": "unique_src_ips_roll30_burst",
+      "importance": 0.16920043528079987
+    },
+    {
+      "feature": "mean_packet_length_roll30_slope",
+      "importance": 0.16737383604049683
+    },
+    {
+      "feature": "unique_dst_ports_roll30_std",
+      "importance": 0.16526387631893158
+    },
+    {
+      "feature": "anom_mean_roll30_std",
+      "importance": 0.1563488095998764
+    },
+    {
+      "feature": "unique_dst_ports_roll30_burst",
+      "importance": 0.15404123067855835
+    },
+    {
+      "feature": "mean_packet_length_roll30_std",
+      "importance": 0.13944227993488312
+    },
+    {
+      "feature": "mean_flow_duration_us_roll30_burst",
+      "importance": 0.1321634203195572
+    },
+    {
+      "feature": "syn_flag_rate_roll30_burst",
+      "importance": 0.13212242722511292
+    },
+    {
+      "feature": "dst_port_entropy_roll5_std",
+      "importance": 0.11999856680631638
+    },
+    {
+      "feature": "anom_frac_roll15_mean",
+      "importance": 0.10521305352449417
+    },
+    {
+      "feature": "unique_dst_ports_roll15_max",
+      "importance": 0.10484757274389267
+    },
+    {
+      "feature": "unique_dst_ips_roll30_burst",
+      "importance": 0.08297542482614517
+    },
+    {
+      "feature": "syn_flag_rate_roll15_slope",
+      "importance": 0.0789777934551239
+    },
+    {
+      "feature": "unique_dst_ips_roll5_max",
+      "importance": 0.07045719027519226
+    },
+    {
+      "feature": "flow_count_roll15_burst",
+      "importance": 0.061529047787189484
+    },
+    {
+      "feature": "short_flow_fraction_roll30_mean",
+      "importance": 0.060095153748989105
+    }
+  ]
+}

@@ -1,0 +1,2013 @@
+{
+  "exploratory_only": true,
+  "methodological_warning": "Intra-day 60/15/25 splits allow later-day records (Thu/Fri morning) in training while earlier-day records (Mon/Tue/Wed afternoon) appear in val/test. Retained strictly as exploratory reference.",
+  "split_protocol": "chronological_intraday_60_15_25_with_5min_gaps",
+  "intraday_bounds": [
+    {
+      "day": "monday",
+      "train_end": "2017-07-03 16:41:20.050879+00:00",
+      "val_start": "2017-07-03 16:46:20.050879+00:00",
+      "val_end": "2017-07-03 17:57:40.414022+00:00",
+      "test_start": "2017-07-03 18:02:40.414022+00:00",
+      "gap_minutes": 5,
+      "train_rows_raw": 230626,
+      "val_rows_raw": 49275,
+      "test_rows_raw": 83365
+    },
+    {
+      "day": "tuesday",
+      "train_end": "2017-07-04 16:39:47.784307+00:00",
+      "val_start": "2017-07-04 16:44:47.784307+00:00",
+      "val_end": "2017-07-04 17:56:18.630815+00:00",
+      "test_start": "2017-07-04 18:01:18.630815+00:00",
+      "gap_minutes": 5,
+      "train_rows_raw": 180469,
+      "val_rows_raw": 55671,
+      "test_rows_raw": 80057
+    },
+    {
+      "day": "wednesday",
+      "train_end": "2017-07-05 16:41:13.568098+00:00",
+      "val_start": "2017-07-05 16:46:13.568098+00:00",
+      "val_end": "2017-07-05 18:00:51.439030+00:00",
+      "test_start": "2017-07-05 18:05:51.439030+00:00",
+      "gap_minutes": 5,
+      "train_rows_raw": 353664,
+      "val_rows_raw": 57361,
+      "test_rows_raw": 81129
+    },
+    {
+      "day": "thursday",
+      "train_end": "2017-07-06 16:44:22.104312+00:00",
+      "val_start": "2017-07-06 16:49:22.104312+00:00",
+      "val_end": "2017-07-06 18:00:42.507855+00:00",
+      "test_start": "2017-07-06 18:05:42.507855+00:00",
+      "gap_minutes": 5,
+      "train_rows_raw": 154169,
+      "val_rows_raw": 49904,
+      "test_rows_raw": 147705
+    },
+    {
+      "day": "friday",
+      "train_end": "2017-07-07 16:43:32.712757+00:00",
+      "val_start": "2017-07-07 16:48:32.712757+00:00",
+      "val_end": "2017-07-07 17:59:28.312147+00:00",
+      "test_start": "2017-07-07 18:04:28.312147+00:00",
+      "gap_minutes": 5,
+      "train_rows_raw": 168087,
+      "val_rows_raw": 185385,
+      "test_rows_raw": 188204
+    }
+  ],
+  "with_dst_port": {
+    "n_features": 83,
+    "feature_columns": [
+      "Dst Port",
+      "Protocol",
+      "Flow Duration",
+      "Total Fwd Packet",
+      "Total Bwd packets",
+      "Total Length of Fwd Packet",
+      "Total Length of Bwd Packet",
+      "Fwd Packet Length Max",
+      "Fwd Packet Length Min",
+      "Fwd Packet Length Mean",
+      "Fwd Packet Length Std",
+      "Bwd Packet Length Max",
+      "Bwd Packet Length Min",
+      "Bwd Packet Length Mean",
+      "Bwd Packet Length Std",
+      "Flow Bytes/s",
+      "Flow Packets/s",
+      "Flow IAT Mean",
+      "Flow IAT Std",
+      "Flow IAT Max",
+      "Flow IAT Min",
+      "Fwd IAT Total",
+      "Fwd IAT Mean",
+      "Fwd IAT Std",
+      "Fwd IAT Max",
+      "Fwd IAT Min",
+      "Bwd IAT Total",
+      "Bwd IAT Mean",
+      "Bwd IAT Std",
+      "Bwd IAT Max",
+      "Bwd IAT Min",
+      "Fwd PSH Flags",
+      "Bwd PSH Flags",
+      "Fwd URG Flags",
+      "Bwd URG Flags",
+      "Fwd RST Flags",
+      "Bwd RST Flags",
+      "Fwd Header Length",
+      "Bwd Header Length",
+      "Fwd Packets/s",
+      "Bwd Packets/s",
+      "Packet Length Min",
+      "Packet Length Max",
+      "Packet Length Mean",
+      "Packet Length Std",
+      "Packet Length Variance",
+      "FIN Flag Count",
+      "SYN Flag Count",
+      "RST Flag Count",
+      "PSH Flag Count",
+      "ACK Flag Count",
+      "URG Flag Count",
+      "CWR Flag Count",
+      "ECE Flag Count",
+      "Down/Up Ratio",
+      "Average Packet Size",
+      "Fwd Segment Size Avg",
+      "Bwd Segment Size Avg",
+      "Fwd Bytes/Bulk Avg",
+      "Fwd Packet/Bulk Avg",
+      "Fwd Bulk Rate Avg",
+      "Bwd Bytes/Bulk Avg",
+      "Bwd Packet/Bulk Avg",
+      "Bwd Bulk Rate Avg",
+      "Subflow Fwd Packets",
+      "Subflow Fwd Bytes",
+      "Subflow Bwd Packets",
+      "Subflow Bwd Bytes",
+      "FWD Init Win Bytes",
+      "Bwd Init Win Bytes",
+      "Fwd Act Data Pkts",
+      "Fwd Seg Size Min",
+      "Active Mean",
+      "Active Std",
+      "Active Max",
+      "Active Min",
+      "Idle Mean",
+      "Idle Std",
+      "Idle Max",
+      "Idle Min",
+      "ICMP Code",
+      "ICMP Type",
+      "Total TCP Flow Time"
+    ],
+    "seen_training_classes": [
+      "BENIGN",
+      "Botnet",
+      "DoS GoldenEye",
+      "DoS Hulk",
+      "DoS Slowhttptest",
+      "DoS Slowloris",
+      "FTP-Patator",
+      "Web Attack - Brute Force",
+      "Web Attack - SQL Injection",
+      "Web Attack - XSS"
+    ],
+    "train_rows": 200000,
+    "val_rows": 132545,
+    "test_rows": 145466,
+    "models": {
+      "random_forest": {
+        "validation": {
+          "macro_f1_all_classes": 0.09726466887005103,
+          "macro_f1_seen_classes_only": 0.19452933774010206,
+          "weighted_f1": 0.4955012779845509,
+          "accuracy": 0.6367799615225018,
+          "binary_attack_f1": 0.00033228801063321634,
+          "binary_roc_auc": 0.9021679772977355,
+          "binary_pr_auc": 0.8539831831923559,
+          "unseen_in_training_classes": [
+            "Infiltration",
+            "Infiltration - Portscan",
+            "Portscan",
+            "SSH-Patator"
+          ],
+          "per_class": [
+            {
+              "class": "BENIGN",
+              "seen_in_training": true,
+              "precision": 0.6368280076960803,
+              "recall": 0.9999763044405479,
+              "f1": 0.7781173509604082,
+              "support": 84404
+            },
+            {
+              "class": "DoS GoldenEye",
+              "seen_in_training": true,
+              "precision": 0.0,
+              "recall": 0.0,
+              "f1": 0.0,
+              "support": 0
+            },
+            {
+              "class": "DoS Hulk",
+              "seen_in_training": true,
+              "precision": 0.0,
+              "recall": 0.0,
+              "f1": 0.0,
+              "support": 0
+            },
+            {
+              "class": "DoS Slowhttptest",
+              "seen_in_training": true,
+              "precision": 0.0,
+              "recall": 0.0,
+              "f1": 0.0,
+              "support": 0
+            },
+            {
+              "class": "Infiltration",
+              "seen_in_training": false,
+              "precision": 0.0,
+              "recall": 0.0,
+              "f1": 0.0,
+              "support": 19
+            },
+            {
+              "class": "Infiltration - Portscan",
+              "seen_in_training": false,
+              "precision": 0.0,
+              "recall": 0.0,
+              "f1": 0.0,
+              "support": 994
+            },
+            {
+              "class": "Portscan",
+              "seen_in_training": false,
+              "precision": 0.0,
+              "recall": 0.0,
+              "f1": 0.0,
+              "support": 46341
+            },
+            {
+              "class": "SSH-Patator",
+              "seen_in_training": false,
+              "precision": 0.0,
+              "recall": 0.0,
+              "f1": 0.0,
+              "support": 787
+            }
+          ],
+          "confusion_matrix": {
+            "labels": [
+              "BENIGN",
+              "DoS GoldenEye",
+              "DoS Hulk",
+              "DoS Slowhttptest",
+              "Infiltration",
+              "Infiltration - Portscan",
+              "Portscan",
+              "SSH-Patator"
+            ],
+            "matrix": [
+              [
+                84402,
+                0,
+                1,
+                1,
+                0,
+                0,
+                0,
+                0
+              ],
+              [
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0
+              ],
+              [
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0
+              ],
+              [
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0
+              ],
+              [
+                19,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0
+              ],
+              [
+                994,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0
+              ],
+              [
+                46333,
+                1,
+                7,
+                0,
+                0,
+                0,
+                0,
+                0
+              ],
+              [
+                787,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0
+              ]
+            ]
+          }
+        },
+        "test": {
+          "macro_f1_all_classes": 0.08387341452109057,
+          "macro_f1_seen_classes_only": 0.2096835363027264,
+          "weighted_f1": 0.5738224799302554,
+          "accuracy": 0.6841461234927749,
+          "binary_attack_f1": 0.2863003990899258,
+          "binary_roc_auc": 0.9620992831864434,
+          "binary_pr_auc": 0.9413267848310791,
+          "unseen_in_training_classes": [
+            "DDoS",
+            "Heartbleed",
+            "Infiltration",
+            "Infiltration - Portscan",
+            "Portscan",
+            "SSH-Patator"
+          ],
+          "per_class": [
+            {
+              "class": "BENIGN",
+              "seen_in_training": true,
+              "precision": 0.7222637510976928,
+              "recall": 0.9999899518694547,
+              "f1": 0.8387341452109056,
+              "support": 99521
+            },
+            {
+              "class": "DDoS",
+              "seen_in_training": false,
+              "precision": 0.0,
+              "recall": 0.0,
+              "f1": 0.0,
+              "support": 23784
+            },
+            {
+              "class": "DoS GoldenEye",
+              "seen_in_training": true,
+              "precision": 0.0,
+              "recall": 0.0,
+              "f1": 0.0,
+              "support": 0
+            },
+            {
+              "class": "DoS Hulk",
+              "seen_in_training": true,
+              "precision": 0.0,
+              "recall": 0.0,
+              "f1": 0.0,
+              "support": 0
+            },
+            {
+              "class": "DoS Slowhttptest",
+              "seen_in_training": true,
+              "precision": 0.0,
+              "recall": 0.0,
+              "f1": 0.0,
+              "support": 0
+            },
+            {
+              "class": "Heartbleed",
+              "seen_in_training": false,
+              "precision": 0.0,
+              "recall": 0.0,
+              "f1": 0.0,
+              "support": 11
+            },
+            {
+              "class": "Infiltration",
+              "seen_in_training": false,
+              "precision": 0.0,
+              "recall": 0.0,
+              "f1": 0.0,
+              "support": 16
+            },
+            {
+              "class": "Infiltration - Portscan",
+              "seen_in_training": false,
+              "precision": 0.0,
+              "recall": 0.0,
+              "f1": 0.0,
+              "support": 16679
+            },
+            {
+              "class": "Portscan",
+              "seen_in_training": false,
+              "precision": 0.0,
+              "recall": 0.0,
+              "f1": 0.0,
+              "support": 5015
+            },
+            {
+              "class": "SSH-Patator",
+              "seen_in_training": false,
+              "precision": 0.0,
+              "recall": 0.0,
+              "f1": 0.0,
+              "support": 440
+            }
+          ],
+          "confusion_matrix": {
+            "labels": [
+              "BENIGN",
+              "DDoS",
+              "DoS GoldenEye",
+              "DoS Hulk",
+              "DoS Slowhttptest",
+              "Heartbleed",
+              "Infiltration",
+              "Infiltration - Portscan",
+              "Portscan",
+              "SSH-Patator"
+            ],
+            "matrix": [
+              [
+                99520,
+                0,
+                0,
+                0,
+                1,
+                0,
+                0,
+                0,
+                0,
+                0
+              ],
+              [
+                16122,
+                0,
+                0,
+                7662,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0
+              ],
+              [
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0
+              ],
+              [
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0
+              ],
+              [
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0
+              ],
+              [
+                11,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0
+              ],
+              [
+                16,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0
+              ],
+              [
+                16679,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0
+              ],
+              [
+                5001,
+                0,
+                5,
+                9,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0
+              ],
+              [
+                440,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0
+              ]
+            ]
+          }
+        }
+      },
+      "xgboost": {
+        "validation": {
+          "macro_f1_all_classes": 0.0972639648194415,
+          "macro_f1_seen_classes_only": 0.194527929638883,
+          "weighted_f1": 0.49549769129700194,
+          "accuracy": 0.63677241691501,
+          "binary_attack_f1": 0.0003322811098189068,
+          "binary_roc_auc": 0.9523578991928182,
+          "binary_pr_auc": 0.8546860767639701,
+          "unseen_in_training_classes": [
+            "Infiltration",
+            "Infiltration - Portscan",
+            "Portscan",
+            "SSH-Patator"
+          ],
+          "per_class": [
+            {
+              "class": "BENIGN",
+              "seen_in_training": true,
+              "precision": 0.6368252674785339,
+              "recall": 0.9999644566608218,
+              "f1": 0.778111718555532,
+              "support": 84404
+            },
+            {
+              "class": "DoS GoldenEye",
+              "seen_in_training": true,
+              "precision": 0.0,
+              "recall": 0.0,
+              "f1": 0.0,
+              "support": 0
+            },
+            {
+              "class": "DoS Hulk",
+              "seen_in_training": true,
+              "precision": 0.0,
+              "recall": 0.0,
+              "f1": 0.0,
+              "support": 0
+            },
+            {
+              "class": "DoS Slowloris",
+              "seen_in_training": true,
+              "precision": 0.0,
+              "recall": 0.0,
+              "f1": 0.0,
+              "support": 0
+            },
+            {
+              "class": "Infiltration",
+              "seen_in_training": false,
+              "precision": 0.0,
+              "recall": 0.0,
+              "f1": 0.0,
+              "support": 19
+            },
+            {
+              "class": "Infiltration - Portscan",
+              "seen_in_training": false,
+              "precision": 0.0,
+              "recall": 0.0,
+              "f1": 0.0,
+              "support": 994
+            },
+            {
+              "class": "Portscan",
+              "seen_in_training": false,
+              "precision": 0.0,
+              "recall": 0.0,
+              "f1": 0.0,
+              "support": 46341
+            },
+            {
+              "class": "SSH-Patator",
+              "seen_in_training": false,
+              "precision": 0.0,
+              "recall": 0.0,
+              "f1": 0.0,
+              "support": 787
+            }
+          ],
+          "confusion_matrix": {
+            "labels": [
+              "BENIGN",
+              "DoS GoldenEye",
+              "DoS Hulk",
+              "DoS Slowloris",
+              "Infiltration",
+              "Infiltration - Portscan",
+              "Portscan",
+              "SSH-Patator"
+            ],
+            "matrix": [
+              [
+                84401,
+                1,
+                0,
+                2,
+                0,
+                0,
+                0,
+                0
+              ],
+              [
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0
+              ],
+              [
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0
+              ],
+              [
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0
+              ],
+              [
+                19,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0
+              ],
+              [
+                994,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0
+              ],
+              [
+                46333,
+                1,
+                7,
+                0,
+                0,
+                0,
+                0,
+                0
+              ],
+              [
+                787,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0
+              ]
+            ]
+          }
+        },
+        "test": {
+          "macro_f1_all_classes": 0.08950203699873194,
+          "macro_f1_seen_classes_only": 0.22375509249682984,
+          "weighted_f1": 0.612330869354406,
+          "accuracy": 0.6841461234927749,
+          "binary_attack_f1": 0.6594111983193768,
+          "binary_roc_auc": 0.9738317471147127,
+          "binary_pr_auc": 0.9427106629470101,
+          "unseen_in_training_classes": [
+            "DDoS",
+            "Heartbleed",
+            "Infiltration",
+            "Infiltration - Portscan",
+            "Portscan",
+            "SSH-Patator"
+          ],
+          "per_class": [
+            {
+              "class": "BENIGN",
+              "seen_in_training": true,
+              "precision": 0.8099947096406626,
+              "recall": 0.9999899518694547,
+              "f1": 0.8950203699873194,
+              "support": 99521
+            },
+            {
+              "class": "DDoS",
+              "seen_in_training": false,
+              "precision": 0.0,
+              "recall": 0.0,
+              "f1": 0.0,
+              "support": 23784
+            },
+            {
+              "class": "DoS GoldenEye",
+              "seen_in_training": true,
+              "precision": 0.0,
+              "recall": 0.0,
+              "f1": 0.0,
+              "support": 0
+            },
+            {
+              "class": "DoS Hulk",
+              "seen_in_training": true,
+              "precision": 0.0,
+              "recall": 0.0,
+              "f1": 0.0,
+              "support": 0
+            },
+            {
+              "class": "FTP-Patator",
+              "seen_in_training": true,
+              "precision": 0.0,
+              "recall": 0.0,
+              "f1": 0.0,
+              "support": 0
+            },
+            {
+              "class": "Heartbleed",
+              "seen_in_training": false,
+              "precision": 0.0,
+              "recall": 0.0,
+              "f1": 0.0,
+              "support": 11
+            },
+            {
+              "class": "Infiltration",
+              "seen_in_training": false,
+              "precision": 0.0,
+              "recall": 0.0,
+              "f1": 0.0,
+              "support": 16
+            },
+            {
+              "class": "Infiltration - Portscan",
+              "seen_in_training": false,
+              "precision": 0.0,
+              "recall": 0.0,
+              "f1": 0.0,
+              "support": 16679
+            },
+            {
+              "class": "Portscan",
+              "seen_in_training": false,
+              "precision": 0.0,
+              "recall": 0.0,
+              "f1": 0.0,
+              "support": 5015
+            },
+            {
+              "class": "SSH-Patator",
+              "seen_in_training": false,
+              "precision": 0.0,
+              "recall": 0.0,
+              "f1": 0.0,
+              "support": 440
+            }
+          ],
+          "confusion_matrix": {
+            "labels": [
+              "BENIGN",
+              "DDoS",
+              "DoS GoldenEye",
+              "DoS Hulk",
+              "FTP-Patator",
+              "Heartbleed",
+              "Infiltration",
+              "Infiltration - Portscan",
+              "Portscan",
+              "SSH-Patator"
+            ],
+            "matrix": [
+              [
+                99520,
+                0,
+                0,
+                0,
+                1,
+                0,
+                0,
+                0,
+                0,
+                0
+              ],
+              [
+                1199,
+                0,
+                0,
+                22585,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0
+              ],
+              [
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0
+              ],
+              [
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0
+              ],
+              [
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0
+              ],
+              [
+                11,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0
+              ],
+              [
+                16,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0
+              ],
+              [
+                16678,
+                0,
+                0,
+                0,
+                1,
+                0,
+                0,
+                0,
+                0,
+                0
+              ],
+              [
+                5001,
+                0,
+                5,
+                9,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0
+              ],
+              [
+                440,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0
+              ]
+            ]
+          }
+        }
+      }
+    }
+  },
+  "without_dst_port_ablation": {
+    "n_features": 82,
+    "feature_columns": [
+      "Protocol",
+      "Flow Duration",
+      "Total Fwd Packet",
+      "Total Bwd packets",
+      "Total Length of Fwd Packet",
+      "Total Length of Bwd Packet",
+      "Fwd Packet Length Max",
+      "Fwd Packet Length Min",
+      "Fwd Packet Length Mean",
+      "Fwd Packet Length Std",
+      "Bwd Packet Length Max",
+      "Bwd Packet Length Min",
+      "Bwd Packet Length Mean",
+      "Bwd Packet Length Std",
+      "Flow Bytes/s",
+      "Flow Packets/s",
+      "Flow IAT Mean",
+      "Flow IAT Std",
+      "Flow IAT Max",
+      "Flow IAT Min",
+      "Fwd IAT Total",
+      "Fwd IAT Mean",
+      "Fwd IAT Std",
+      "Fwd IAT Max",
+      "Fwd IAT Min",
+      "Bwd IAT Total",
+      "Bwd IAT Mean",
+      "Bwd IAT Std",
+      "Bwd IAT Max",
+      "Bwd IAT Min",
+      "Fwd PSH Flags",
+      "Bwd PSH Flags",
+      "Fwd URG Flags",
+      "Bwd URG Flags",
+      "Fwd RST Flags",
+      "Bwd RST Flags",
+      "Fwd Header Length",
+      "Bwd Header Length",
+      "Fwd Packets/s",
+      "Bwd Packets/s",
+      "Packet Length Min",
+      "Packet Length Max",
+      "Packet Length Mean",
+      "Packet Length Std",
+      "Packet Length Variance",
+      "FIN Flag Count",
+      "SYN Flag Count",
+      "RST Flag Count",
+      "PSH Flag Count",
+      "ACK Flag Count",
+      "URG Flag Count",
+      "CWR Flag Count",
+      "ECE Flag Count",
+      "Down/Up Ratio",
+      "Average Packet Size",
+      "Fwd Segment Size Avg",
+      "Bwd Segment Size Avg",
+      "Fwd Bytes/Bulk Avg",
+      "Fwd Packet/Bulk Avg",
+      "Fwd Bulk Rate Avg",
+      "Bwd Bytes/Bulk Avg",
+      "Bwd Packet/Bulk Avg",
+      "Bwd Bulk Rate Avg",
+      "Subflow Fwd Packets",
+      "Subflow Fwd Bytes",
+      "Subflow Bwd Packets",
+      "Subflow Bwd Bytes",
+      "FWD Init Win Bytes",
+      "Bwd Init Win Bytes",
+      "Fwd Act Data Pkts",
+      "Fwd Seg Size Min",
+      "Active Mean",
+      "Active Std",
+      "Active Max",
+      "Active Min",
+      "Idle Mean",
+      "Idle Std",
+      "Idle Max",
+      "Idle Min",
+      "ICMP Code",
+      "ICMP Type",
+      "Total TCP Flow Time"
+    ],
+    "seen_training_classes": [
+      "BENIGN",
+      "Botnet",
+      "DoS GoldenEye",
+      "DoS Hulk",
+      "DoS Slowhttptest",
+      "DoS Slowloris",
+      "FTP-Patator",
+      "Web Attack - Brute Force",
+      "Web Attack - SQL Injection",
+      "Web Attack - XSS"
+    ],
+    "train_rows": 200000,
+    "val_rows": 132545,
+    "test_rows": 145466,
+    "models": {
+      "random_forest": {
+        "validation": {
+          "macro_f1_all_classes": 0.09726537291416981,
+          "macro_f1_seen_classes_only": 0.19453074582833962,
+          "weighted_f1": 0.4955048646390336,
+          "accuracy": 0.6367875061299936,
+          "binary_attack_f1": 0.0003322949117341641,
+          "binary_roc_auc": 0.979314540633748,
+          "binary_pr_auc": 0.9616989329015889,
+          "unseen_in_training_classes": [
+            "Infiltration",
+            "Infiltration - Portscan",
+            "Portscan",
+            "SSH-Patator"
+          ],
+          "per_class": [
+            {
+              "class": "BENIGN",
+              "seen_in_training": true,
+              "precision": 0.6368307478722762,
+              "recall": 0.9999881522202739,
+              "f1": 0.7781229833133585,
+              "support": 84404
+            },
+            {
+              "class": "DoS GoldenEye",
+              "seen_in_training": true,
+              "precision": 0.0,
+              "recall": 0.0,
+              "f1": 0.0,
+              "support": 0
+            },
+            {
+              "class": "DoS Hulk",
+              "seen_in_training": true,
+              "precision": 0.0,
+              "recall": 0.0,
+              "f1": 0.0,
+              "support": 0
+            },
+            {
+              "class": "DoS Slowhttptest",
+              "seen_in_training": true,
+              "precision": 0.0,
+              "recall": 0.0,
+              "f1": 0.0,
+              "support": 0
+            },
+            {
+              "class": "Infiltration",
+              "seen_in_training": false,
+              "precision": 0.0,
+              "recall": 0.0,
+              "f1": 0.0,
+              "support": 19
+            },
+            {
+              "class": "Infiltration - Portscan",
+              "seen_in_training": false,
+              "precision": 0.0,
+              "recall": 0.0,
+              "f1": 0.0,
+              "support": 994
+            },
+            {
+              "class": "Portscan",
+              "seen_in_training": false,
+              "precision": 0.0,
+              "recall": 0.0,
+              "f1": 0.0,
+              "support": 46341
+            },
+            {
+              "class": "SSH-Patator",
+              "seen_in_training": false,
+              "precision": 0.0,
+              "recall": 0.0,
+              "f1": 0.0,
+              "support": 787
+            }
+          ],
+          "confusion_matrix": {
+            "labels": [
+              "BENIGN",
+              "DoS GoldenEye",
+              "DoS Hulk",
+              "DoS Slowhttptest",
+              "Infiltration",
+              "Infiltration - Portscan",
+              "Portscan",
+              "SSH-Patator"
+            ],
+            "matrix": [
+              [
+                84403,
+                0,
+                0,
+                1,
+                0,
+                0,
+                0,
+                0
+              ],
+              [
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0
+              ],
+              [
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0
+              ],
+              [
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0
+              ],
+              [
+                19,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0
+              ],
+              [
+                994,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0
+              ],
+              [
+                46333,
+                1,
+                7,
+                0,
+                0,
+                0,
+                0,
+                0
+              ],
+              [
+                787,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0
+              ]
+            ]
+          }
+        },
+        "test": {
+          "macro_f1_all_classes": 0.0834888822707768,
+          "macro_f1_seen_classes_only": 0.208722205676942,
+          "weighted_f1": 0.5711916910116438,
+          "accuracy": 0.6841461234927749,
+          "binary_attack_f1": 0.25064250223685963,
+          "binary_roc_auc": 0.9164779214080894,
+          "binary_pr_auc": 0.8832439634387026,
+          "unseen_in_training_classes": [
+            "DDoS",
+            "Heartbleed",
+            "Infiltration",
+            "Infiltration - Portscan",
+            "Portscan",
+            "SSH-Patator"
+          ],
+          "per_class": [
+            {
+              "class": "BENIGN",
+              "seen_in_training": true,
+              "precision": 0.7165795423453003,
+              "recall": 0.9999899518694547,
+              "f1": 0.834888822707768,
+              "support": 99521
+            },
+            {
+              "class": "DDoS",
+              "seen_in_training": false,
+              "precision": 0.0,
+              "recall": 0.0,
+              "f1": 0.0,
+              "support": 23784
+            },
+            {
+              "class": "DoS GoldenEye",
+              "seen_in_training": true,
+              "precision": 0.0,
+              "recall": 0.0,
+              "f1": 0.0,
+              "support": 0
+            },
+            {
+              "class": "DoS Hulk",
+              "seen_in_training": true,
+              "precision": 0.0,
+              "recall": 0.0,
+              "f1": 0.0,
+              "support": 0
+            },
+            {
+              "class": "DoS Slowhttptest",
+              "seen_in_training": true,
+              "precision": 0.0,
+              "recall": 0.0,
+              "f1": 0.0,
+              "support": 0
+            },
+            {
+              "class": "Heartbleed",
+              "seen_in_training": false,
+              "precision": 0.0,
+              "recall": 0.0,
+              "f1": 0.0,
+              "support": 11
+            },
+            {
+              "class": "Infiltration",
+              "seen_in_training": false,
+              "precision": 0.0,
+              "recall": 0.0,
+              "f1": 0.0,
+              "support": 16
+            },
+            {
+              "class": "Infiltration - Portscan",
+              "seen_in_training": false,
+              "precision": 0.0,
+              "recall": 0.0,
+              "f1": 0.0,
+              "support": 16679
+            },
+            {
+              "class": "Portscan",
+              "seen_in_training": false,
+              "precision": 0.0,
+              "recall": 0.0,
+              "f1": 0.0,
+              "support": 5015
+            },
+            {
+              "class": "SSH-Patator",
+              "seen_in_training": false,
+              "precision": 0.0,
+              "recall": 0.0,
+              "f1": 0.0,
+              "support": 440
+            }
+          ],
+          "confusion_matrix": {
+            "labels": [
+              "BENIGN",
+              "DDoS",
+              "DoS GoldenEye",
+              "DoS Hulk",
+              "DoS Slowhttptest",
+              "Heartbleed",
+              "Infiltration",
+              "Infiltration - Portscan",
+              "Portscan",
+              "SSH-Patator"
+            ],
+            "matrix": [
+              [
+                99520,
+                0,
+                0,
+                0,
+                1,
+                0,
+                0,
+                0,
+                0,
+                0
+              ],
+              [
+                17215,
+                0,
+                0,
+                6569,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0
+              ],
+              [
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0
+              ],
+              [
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0
+              ],
+              [
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0
+              ],
+              [
+                11,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0
+              ],
+              [
+                16,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0
+              ],
+              [
+                16679,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0
+              ],
+              [
+                5001,
+                0,
+                5,
+                9,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0
+              ],
+              [
+                440,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0
+              ]
+            ]
+          }
+        }
+      },
+      "xgboost": {
+        "validation": {
+          "macro_f1_all_classes": 0.08645498011437118,
+          "macro_f1_seen_classes_only": 0.15561896420586813,
+          "weighted_f1": 0.4954869310359535,
+          "accuracy": 0.6367497830925346,
+          "binary_attack_f1": 0.0003322604090956287,
+          "binary_roc_auc": 0.9576327079968827,
+          "binary_pr_auc": 0.8314298712714342,
+          "unseen_in_training_classes": [
+            "Infiltration",
+            "Infiltration - Portscan",
+            "Portscan",
+            "SSH-Patator"
+          ],
+          "per_class": [
+            {
+              "class": "BENIGN",
+              "seen_in_training": true,
+              "precision": 0.6368170465777818,
+              "recall": 0.9999289133216436,
+              "f1": 0.7780948210293406,
+              "support": 84404
+            },
+            {
+              "class": "DoS GoldenEye",
+              "seen_in_training": true,
+              "precision": 0.0,
+              "recall": 0.0,
+              "f1": 0.0,
+              "support": 0
+            },
+            {
+              "class": "DoS Hulk",
+              "seen_in_training": true,
+              "precision": 0.0,
+              "recall": 0.0,
+              "f1": 0.0,
+              "support": 0
+            },
+            {
+              "class": "DoS Slowloris",
+              "seen_in_training": true,
+              "precision": 0.0,
+              "recall": 0.0,
+              "f1": 0.0,
+              "support": 0
+            },
+            {
+              "class": "FTP-Patator",
+              "seen_in_training": true,
+              "precision": 0.0,
+              "recall": 0.0,
+              "f1": 0.0,
+              "support": 0
+            },
+            {
+              "class": "Infiltration",
+              "seen_in_training": false,
+              "precision": 0.0,
+              "recall": 0.0,
+              "f1": 0.0,
+              "support": 19
+            },
+            {
+              "class": "Infiltration - Portscan",
+              "seen_in_training": false,
+              "precision": 0.0,
+              "recall": 0.0,
+              "f1": 0.0,
+              "support": 994
+            },
+            {
+              "class": "Portscan",
+              "seen_in_training": false,
+              "precision": 0.0,
+              "recall": 0.0,
+              "f1": 0.0,
+              "support": 46341
+            },
+            {
+              "class": "SSH-Patator",
+              "seen_in_training": false,
+              "precision": 0.0,
+              "recall": 0.0,
+              "f1": 0.0,
+              "support": 787
+            }
+          ],
+          "confusion_matrix": {
+            "labels": [
+              "BENIGN",
+              "DoS GoldenEye",
+              "DoS Hulk",
+              "DoS Slowloris",
+              "FTP-Patator",
+              "Infiltration",
+              "Infiltration - Portscan",
+              "Portscan",
+              "SSH-Patator"
+            ],
+            "matrix": [
+              [
+                84398,
+                0,
+                0,
+                4,
+                2,
+                0,
+                0,
+                0,
+                0
+              ],
+              [
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0
+              ],
+              [
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0
+              ],
+              [
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0
+              ],
+              [
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0
+              ],
+              [
+                19,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0
+              ],
+              [
+                994,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0
+              ],
+              [
+                46333,
+                1,
+                7,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0
+              ],
+              [
+                787,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0
+              ]
+            ]
+          }
+        },
+        "test": {
+          "macro_f1_all_classes": 0.08138553061617529,
+          "macro_f1_seen_classes_only": 0.17904816735558565,
+          "weighted_f1": 0.6124817023701498,
+          "accuracy": 0.6841392490341386,
+          "binary_attack_f1": 0.6604958966809031,
+          "binary_roc_auc": 0.9782982309180881,
+          "binary_pr_auc": 0.9527611036167645,
+          "unseen_in_training_classes": [
+            "DDoS",
+            "Heartbleed",
+            "Infiltration",
+            "Infiltration - Portscan",
+            "Portscan",
+            "SSH-Patator"
+          ],
+          "per_class": [
+            {
+              "class": "BENIGN",
+              "seen_in_training": true,
+              "precision": 0.8103625170998632,
+              "recall": 0.9999799037389093,
+              "f1": 0.8952408367779282,
+              "support": 99521
+            },
+            {
+              "class": "DDoS",
+              "seen_in_training": false,
+              "precision": 0.0,
+              "recall": 0.0,
+              "f1": 0.0,
+              "support": 23784
+            },
+            {
+              "class": "DoS GoldenEye",
+              "seen_in_training": true,
+              "precision": 0.0,
+              "recall": 0.0,
+              "f1": 0.0,
+              "support": 0
+            },
+            {
+              "class": "DoS Hulk",
+              "seen_in_training": true,
+              "precision": 0.0,
+              "recall": 0.0,
+              "f1": 0.0,
+              "support": 0
+            },
+            {
+              "class": "DoS Slowhttptest",
+              "seen_in_training": true,
+              "precision": 0.0,
+              "recall": 0.0,
+              "f1": 0.0,
+              "support": 0
+            },
+            {
+              "class": "DoS Slowloris",
+              "seen_in_training": true,
+              "precision": 0.0,
+              "recall": 0.0,
+              "f1": 0.0,
+              "support": 0
+            },
+            {
+              "class": "Heartbleed",
+              "seen_in_training": false,
+              "precision": 0.0,
+              "recall": 0.0,
+              "f1": 0.0,
+              "support": 11
+            },
+            {
+              "class": "Infiltration",
+              "seen_in_training": false,
+              "precision": 0.0,
+              "recall": 0.0,
+              "f1": 0.0,
+              "support": 16
+            },
+            {
+              "class": "Infiltration - Portscan",
+              "seen_in_training": false,
+              "precision": 0.0,
+              "recall": 0.0,
+              "f1": 0.0,
+              "support": 16679
+            },
+            {
+              "class": "Portscan",
+              "seen_in_training": false,
+              "precision": 0.0,
+              "recall": 0.0,
+              "f1": 0.0,
+              "support": 5015
+            },
+            {
+              "class": "SSH-Patator",
+              "seen_in_training": false,
+              "precision": 0.0,
+              "recall": 0.0,
+              "f1": 0.0,
+              "support": 440
+            }
+          ],
+          "confusion_matrix": {
+            "labels": [
+              "BENIGN",
+              "DDoS",
+              "DoS GoldenEye",
+              "DoS Hulk",
+              "DoS Slowhttptest",
+              "DoS Slowloris",
+              "Heartbleed",
+              "Infiltration",
+              "Infiltration - Portscan",
+              "Portscan",
+              "SSH-Patator"
+            ],
+            "matrix": [
+              [
+                99519,
+                0,
+                0,
+                0,
+                1,
+                1,
+                0,
+                0,
+                0,
+                0,
+                0
+              ],
+              [
+                1142,
+                0,
+                0,
+                22642,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0
+              ],
+              [
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0
+              ],
+              [
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0
+              ],
+              [
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0
+              ],
+              [
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0
+              ],
+              [
+                11,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0
+              ],
+              [
+                16,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0
+              ],
+              [
+                16679,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0
+              ],
+              [
+                5001,
+                0,
+                5,
+                9,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0
+              ],
+              [
+                440,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0
+              ]
+            ]
+          }
+        }
+      }
+    }
+  },
+  "holdout_family_experiment": {
+    "held_out_family": "DoS Hulk",
+    "held_out_family_eval_flows": 50000,
+    "xgb_binary_detection_rate_on_unseen_family": 0.60102,
+    "xgb_mean_attack_probability_on_unseen_family": 0.5774589776992798,
+    "top_predicted_labels_for_unseen_family": [
+      {
+        "pred": "DoS GoldenEye",
+        "count": 29963
+      },
+      {
+        "pred": "BENIGN",
+        "count": 19949
+      },
+      {
+        "pred": "DoS Slowhttptest",
+        "count": 80
+      },
+      {
+        "pred": "DoS Slowloris",
+        "count": 8
+      }
+    ],
+    "test_split_summary": {
+      "random_forest": {
+        "macro_f1_all": 0.09027457458152083,
+        "binary_attack_f1": 0.00021762312028029857
+      },
+      "xgboost": {
+        "macro_f1_all": 0.09520502275373258,
+        "binary_attack_f1": 0.43289334561206044
+      }
+    }
+  }
+}

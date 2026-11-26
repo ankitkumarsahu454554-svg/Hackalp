@@ -124,7 +124,18 @@ Total onset events: **17** (Split onsets — Train: `6`, Validation: `5`, Test: 
 5. **Label Sensitivity**: Even after CNS 2022 fixes and `Attempted -> BENIGN` relabelling, onset boundaries depend on `K_MIN` and `QUIET_GAP_MIN`.
 6. **Flow Metadata & Encrypted Payloads**: Only aggregate flow statistics are observed (no packet payloads, DNS, or endpoint logs).
 
-## 9. Reproduction Commands
+## 9. Web Application, Brand Identity & Design System
+- **Entry Point & Design System**: `app.py`, `assets/styles/theme.css`, `components/ui.py`, `utils/data_loaders.py`.
+- **Original Brand Assets (`assets/brand/`)**: `cybersentinel_logo_primary.svg`, `cybersentinel_logo_light.svg`, `cybersentinel_logo_sidebar.svg`, `cybersentinel_icon.svg`, `favicon.svg`, `favicon.png`.
+- **Five Application Pages (`dashboard/`)**:
+  1. **Security Command Centre** (`command_centre.py`) — Unified SOC KPI strip, readiness overview, family/anomaly distributions, temporal timelines, recent alerts, and decoupled module status cards.
+  2. **Temporal Threat Radar** (`threat_radar.py`) — Polar temporal threat scope, historical replay controls (`Start`, `Pause`, `Step +1m`, `Step +10m`, `Reset`, `Speed`), observed-vs-forecast timeline, and warning feeds.
+  3. **Explainable AI** (`explainable_ai.py`) — Strictly separated Forecasting (Module M) & Detection (Module A) global and per-alert SHAP attributions with plain-English reason cards.
+  4. **Alert Management** (`alert_management.py`) — SOC triage queue with severity KPI summary, search/filter/sort, SHAP inspector, and persistent analyst workflow (`New`, `Acknowledged`, `Escalated`, `Resolved`, `Dismissed`).
+  5. **Model Evaluation** (`model_evaluation.py`) — Scientific verdict (`NOT DISTINGUISHABLE`), mandatory limitations, baseline comparison, paired bootstrap CIs, `K_MIN in {1, 3, 5}` sensitivity, global chronological classification, and out-of-time Isolation Forest audit.
+- **Screenshots**: Captured across all five pages and responsive mobile viewport in `docs/screenshots/`.
+
+## 10. Reproduction Commands
 ```bash
 python -m scripts.fetch_data
 python -m src.pipeline --stage all
@@ -133,5 +144,5 @@ python -m pytest -v
 streamlit run app.py
 ```
 
-## 10. Privacy Notes
+## 11. Privacy Notes
 Analysis uses aggregate network-flow metadata (packet counts, byte volumes, inter-arrival timing, TCP flags, destination ports, and testbed IPs solely for entropy and unseen-source ratios); no packet payloads or PII are inspected or stored.

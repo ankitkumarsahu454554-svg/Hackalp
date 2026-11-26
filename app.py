@@ -1,11 +1,16 @@
-"""CYBERSENTINEL AI (Temporal Threat Radar) — Main Streamlit Dashboard Entrypoint."""
+"""CYBERSENTINEL AI (Temporal Threat Radar) — Production Streamlit Application Shell."""
 from __future__ import annotations
+
+from pathlib import Path
 
 import streamlit as st
 
+_FAVICON_PATH = Path(__file__).resolve().parent / "assets" / "brand" / "favicon.png"
+_PAGE_ICON: str = str(_FAVICON_PATH) if _FAVICON_PATH.exists() else "CS"
+
 st.set_page_config(
     page_title="CYBERSENTINEL AI — Temporal Threat Radar",
-    page_icon="🛡️",
+    page_icon=_PAGE_ICON,
     layout="wide",
     initial_sidebar_state="expanded",
 )
@@ -17,7 +22,13 @@ from dashboard import (
     model_evaluation,
     threat_radar,
 )
-from dashboard.ui_utils import get_cfg, render_global_banners
+from dashboard.ui_utils import (
+    get_cfg,
+    get_runtime_status_context,
+    inject_theme_css,
+    render_sidebar_brand_and_status,
+    render_sidebar_footer_status,
+)
 
 PAGES = {
     "1. Security Command Centre": command_centre.render,
@@ -27,16 +38,30 @@ PAGES = {
     "5. Model Evaluation": model_evaluation.render,
 }
 
+_NAV_LABELS = {
+    "1. Security Command Centre": "Command Centre",
+    "2. Temporal Threat Radar": "Temporal Threat Radar",
+    "3. Explainable AI": "Explainable AI (SHAP)",
+    "4. Alert Management": "Alert Management",
+    "5. Model Evaluation": "Model Evaluation",
+}
+
 
 def main() -> None:
     cfg = get_cfg()
-    render_global_banners(cfg)
+    inject_theme_css(cfg)
+    ctx = get_runtime_status_context(cfg)
 
     with st.sidebar:
-        st.title("Navigation")
-        choice = st.radio("Select View", list(PAGES.keys()), label_visibility="collapsed")
-        st.divider()
-        st.caption("CYBERSENTINEL AI — Temporal Threat Radar")
+        render_sidebar_brand_and_status(cfg, ctx)
+        st.markdown('<div class="cs-nav-label">Operations &amp; Research</div>', unsafe_allow_html=True)
+        choice = st.radio(
+            "Select View",
+            list(PAGES.keys()),
+            format_func=lambda k: _NAV_LABELS.get(k, k),
+            label_visibility="collapsed",
+        )
+        render_sidebar_footer_status(cfg, ctx)
 
     PAGES[choice](cfg)
 

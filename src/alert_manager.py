@@ -11,7 +11,7 @@ from config.settings import Settings, get_settings
 
 logger = logging.getLogger(__name__)
 
-VALID_STATUSES = ("New", "Acknowledged", "Escalated", "Dismissed")
+VALID_STATUSES = ("New", "Acknowledged", "Escalated", "Resolved", "Dismissed")
 
 
 @dataclass

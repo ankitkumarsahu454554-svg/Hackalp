@@ -1,59 +1,37 @@
-# CYBERSENTINEL AI — Final Test & Verification Report
+# CYBERSENTINEL AI — Final Test & UI Verification Report
 
 ## 1. Automated Unit & Integration Suite (`python -m pytest -v`)
-Executed on Python `3.13.7`, `pytest 9.1.1` (Windows x64) after all Phase 2–4 code and dashboard fixes:
-- **Outcome**: **`25 passed, 7 warnings in 40.41s`** (`0` failed, `0` skipped)
-- Warnings observed: 1 `RequestsDependencyWarning` (installed `urllib3`/`charset_normalizer` minor mismatch), 6 synthetic single-label `confusion_matrix` `UserWarning`s in `test_stage2.py`.
-
-### Verified Test Cases (All 25 Passed)
-1. `tests/test_acquisition.py::test_offline_writes_data_needed_and_synthetic_flag` — **PASSED**
-2. `tests/test_acquisition.py::test_local_existing_files_verified_and_skipped_without_overwrite` — **PASSED**
-3. `tests/test_acquisition.py::test_size_or_hash_mismatch_detected_without_overwrite` — **PASSED**
-4. `tests/test_acquisition.py::test_zip_slip_blocked` — **PASSED**
-5. `tests/test_dashboard_and_docs.py::test_config_env_overrides` — **PASSED**
-6. `tests/test_dashboard_and_docs.py::test_make_readme_from_results_and_manifest` — **PASSED**
-7. `tests/test_dashboard_and_docs.py::test_dashboard_pages_handle_missing_results_gracefully` — **PASSED**
-8. `tests/test_forecasting_and_eval.py::test_hand_computed_alert_episode_metrics_one_to_one` — **PASSED** *(verifies two separate alert episodes before one onset yield `hit_episodes=1`, `warned_onsets=1`, `false_episodes=1`, `lead_times=[5.0]`)*
-9. `tests/test_forecasting_and_eval.py::test_eligible_observation_duration_used_for_false_alert_rate` — **PASSED** *(verifies division by `observed_minutes` rather than wall-clock length)*
-10. `tests/test_forecasting_and_eval.py::test_chronological_split_and_pipeline_smoke` — **PASSED**
-11. `tests/test_leakage.py::test_no_forbidden_columns_in_deployable_features` — **PASSED**
-12. `tests/test_leakage.py::test_leakage_equivalence_under_end_time_truncation` — **PASSED**
-13. `tests/test_leakage.py::test_config_override_horizons_changes_targets` — **PASSED**
-14. `tests/test_preprocessing.py::test_label_dash_normalization` — **PASSED**
-15. `tests/test_preprocessing.py::test_timestamp_12h_ampm_disambiguation` — **PASSED**
-16. `tests/test_preprocessing.py::test_feature_column_exclusion` — **PASSED**
-17. `tests/test_preprocessing.py::test_onset_grid_k_min_quiet_gap_and_segments` — **PASSED**
-18. `tests/test_preprocessing.py::test_audit_end_to_end_on_tiny_csv` — **PASSED**
-19. `tests/test_replay.py::test_replay_causality_and_controls_step_pause_reset` — **PASSED** *(verifies replay causal masking and `Step +10 min` / `Pause` / `Reset` semantics)*
-20. `tests/test_splits.py::test_global_classification_split_strictly_chronological` — **PASSED** *(verifies `train < embargo < val < embargo < test`)*
-21. `tests/test_splits.py::test_forecast_split_no_overlap_and_required_gaps` — **PASSED** *(verifies `>= 35`-min gaps on real forecast dataset)*
-22. `tests/test_stage2.py::test_global_chronological_split_bounds_have_embargo` — **PASSED**
-23. `tests/test_stage2.py::test_stage2_global_classification_and_strict_oot_anomaly` — **PASSED** *(verifies Monday fit exclusion from OOT evaluation)*
-24. `tests/test_stages_5_to_7.py::test_explainability_and_alert_manager_separation` — **PASSED**
-25. `tests/test_stages_5_to_7.py::test_replay_never_reads_future_and_hides_future_labels` — **PASSED**
+Executed on Python `3.13.7`, `pytest 9.1.1` (Windows x64):
+- **Outcome**: **`26 passed, 7 warnings`** (`0` failed, `0` skipped across all 9 test modules).
+- Coverage includes:
+  - Stage 1 acquisition integrity, hash mismatch detection, Zip-Slip prevention (`tests/test_acquisition.py`, 4 tests)
+  - Normalization, timestamp parsing, onset/segment logic, end-to-end tiny audit (`tests/test_preprocessing.py`, 5 tests)
+  - End-time truncation leakage equivalence & forbidden column exclusion (`tests/test_leakage.py`, 3 tests)
+  - Chronological split bounds, 30-min detection embargo, 35-min forecast gap (`tests/test_splits.py`, 2 tests; `tests/test_stage2.py`, 2 tests)
+  - Strict 1-to-1 episode matching & eligible observation duration false-alert rate (`tests/test_forecasting_and_eval.py`, 3 tests)
+  - Causal replay stepping, explainability, and AlertManager persistence (`tests/test_replay.py`, 1 test; `tests/test_stages_5_to_7.py`, 2 tests)
+  - Config overrides, README generation, SVG/CSS brand asset presence, and Streamlit 5-page `AppTest` + replay step (`tests/test_dashboard_and_docs.py`, 4 tests)
 
 ---
 
-## 2. Dashboard End-to-End & Runtime Verification (`AppTest` + Live Health Check)
-- **Streamlit `AppTest` across all 5 views + replay stepping** (`timeout=60s` per view):
-  - `1. Security Command Centre`: **PASSED** (`5` KPI metrics rendered, `Step +10 min` causal replay button clicked with zero exceptions)
-  - `2. Temporal Threat Radar`: **PASSED** (`4` metrics, `0` exceptions)
-  - `3. Explainable AI`: **PASSED** (`0` exceptions)
-  - `4. Alert Management`: **PASSED** (`1` alert dataframe rendered, `0` exceptions)
-  - `5. Model Evaluation`: **PASSED** (`6` evaluation tables & sensitivity breakdowns rendered, `0` exceptions)
-- **Live Server Startup Check**:
-  - Started `python -m streamlit run app.py --server.headless true --server.port 8509`
-  - Queried `http://127.0.0.1:8509/_stcore/health` -> **HTTP `200` (`ok`)**, then terminated cleanly.
+## 2. Live Browser QA & Responsive Layout Verification (Headless Chrome 1440x900 & 412x915)
+Verified live against `streamlit run app.py --server.headless true --server.port 8510`:
+- **Logo Integration**: `.cs-sidebar-brand img` SVG lockup loaded cleanly (`complete: True`, `252.6 x 57.25` px).
+- **Console & Runtime Errors**: `CONSOLE_ERRORS = []`, `PAGE_EXCEPTIONS = []`, `st_exception = None` across all 5 views.
+- **Interactive Navigation & Controls**:
+  - `1. Security Command Centre`: Clicked `Step +10 min` -> verified causal update (`6,430` replay flows, `348` anomalies, `Cursor 10 / 361 min`); `overflow = 0 px`.
+  - `2. Temporal Threat Radar`: Verified polar `Temporal Threat Scope`, replay controls, and risk timeline; `overflow = 0 px`.
+  - `3. Explainable AI (SHAP)`: Verified global & local SHAP charts and non-causality notice; `overflow = 0 px`.
+  - `4. Alert Management`: Verified `10` active replay alerts, severity badges, search/filter/sort controls, and inspector; `overflow = 0 px`.
+  - `5. Model Evaluation`: Verified `NOT DISTINGUISHABLE` verdict card, Key Scientific Limitations panel, 4 evaluation tabs, and KPI grid; `overflow = 0 px`.
+- **Mobile Responsive Check (`412x915`)**: `MOBILE_OVERFLOW_PX = 0`, single-column KPI card stacking, readable headers, collapsed sidebar toggle accessible.
 
 ---
 
-## 3. Data, Experiments & Hygiene Verification
-- **Manifest & Provenance**: `CICIDS2017_improved.zip` and 5 extracted CSVs SHA-256 verified against `data/raw/DATA_MANIFEST.json`.
-- **Pipeline Re-runs Completed After Fixes**:
-  - `classify` -> Global chronological split (`2,099,976` clean rows across 5 days, `200k`/`150k`/`150k` samples, `30`-min embargoes)
-  - `anomaly` -> Benign-verified `flows_monday.parquet` fit (`371,624` excluded), strict Tue–Fri out-of-time eval (`1,728,352` flows)
-  - `forecast` + `evaluate` + `k_min_sensitivity` -> Primary `H=5` min + `K_MIN in {1, 3, 5}` + 30-min block bootstrap (`500` reps) + Detection/Forecast SHAP + `README.md` regeneration
-- **Security, Secrets & Branding Hygiene**:
-  - `.env*` file count: **`0`**
-  - Secret / credential pattern hits: **`0`**
-  - Non-product branding/institutional/team hits: **`0`**
+## 3. Screenshots Captured (`docs/screenshots/`)
+- `docs/screenshots/page_1_command_centre.png`
+- `docs/screenshots/page_2_temporal_threat_radar.png`
+- `docs/screenshots/page_3_explainable_ai.png`
+- `docs/screenshots/page_4_alert_management.png`
+- `docs/screenshots/page_5_model_evaluation.png`
+- `docs/screenshots/mobile_command_centre.png`

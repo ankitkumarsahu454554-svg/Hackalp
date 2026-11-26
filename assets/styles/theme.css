@@ -1,0 +1,477 @@
+/* CYBERSENTINEL AI — Temporal Threat Radar Design System */
+:root {
+  --cs-bg-canvas: #070B14;
+  --cs-bg-surface: #0F172A;
+  --cs-bg-elevated: #131E34;
+  --cs-bg-hover: #182540;
+  --cs-border-subtle: rgba(148, 163, 184, 0.14);
+  --cs-border-accent: rgba(0, 212, 255, 0.34);
+  --cs-text-primary: #F1F5F9;
+  --cs-text-secondary: #94A3B8;
+  --cs-text-muted: #64748B;
+  --cs-cyan: #00D4FF;
+  --cs-violet: #8B5CF6;
+  --cs-critical: #EF4444;
+  --cs-high: #F97316;
+  --cs-warning: #F59E0B;
+  --cs-healthy: #10B981;
+  --cs-info: #38BDF8;
+  --cs-radius-sm: 6px;
+  --cs-radius-md: 10px;
+  --cs-radius-lg: 14px;
+  --cs-shadow-card: 0 4px 20px rgba(2, 6, 23, 0.45);
+}
+
+/* Global Canvas & Typography */
+html, body, [data-testid="stAppViewContainer"] {
+  background-color: var(--cs-bg-canvas);
+  color: var(--cs-text-primary);
+  font-family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+}
+
+.block-container {
+  padding-top: 2.85rem !important;
+  padding-bottom: 2.5rem !important;
+  max-width: 1440px;
+}
+
+/* Clean Sidebar Shell */
+section[data-testid="stSidebar"] {
+  background: linear-gradient(180deg, #090F1D 0%, #0B1324 100%);
+  border-right: 1px solid var(--cs-border-subtle);
+}
+
+section[data-testid="stSidebar"] .stRadio > div[role="radiogroup"] {
+  gap: 0.35rem;
+}
+
+section[data-testid="stSidebar"] .stRadio label {
+  background: rgba(15, 23, 42, 0.55);
+  border: 1px solid transparent;
+  border-radius: var(--cs-radius-sm);
+  padding: 0.48rem 0.72rem;
+  transition: background-color 140ms ease, border-color 140ms ease;
+  cursor: pointer;
+}
+
+section[data-testid="stSidebar"] .stRadio label:hover {
+  background: rgba(19, 30, 52, 0.92);
+  border-color: rgba(0, 212, 255, 0.25);
+}
+
+section[data-testid="stSidebar"] .stRadio label:has(input:checked) {
+  background: rgba(0, 212, 255, 0.11);
+  border-color: rgba(0, 212, 255, 0.48);
+  box-shadow: inset 3px 0 0 var(--cs-cyan);
+}
+
+/* Sidebar Brand Card */
+.cs-sidebar-brand {
+  padding: 0.35rem 0.2rem 0.65rem 0.2rem;
+  border-bottom: 1px solid var(--cs-border-subtle);
+  margin-bottom: 0.85rem;
+}
+
+.cs-sidebar-brand svg {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.cs-nav-label {
+  font-size: 0.70rem;
+  font-weight: 700;
+  letter-spacing: 0.11em;
+  text-transform: uppercase;
+  color: var(--cs-text-muted);
+  margin: 0.6rem 0 0.45rem 0;
+}
+
+.cs-sidebar-panel {
+  background: rgba(15, 23, 42, 0.85);
+  border: 1px solid var(--cs-border-subtle);
+  border-radius: var(--cs-radius-md);
+  padding: 0.75rem 0.85rem;
+  margin-top: 0.65rem;
+}
+
+.cs-sidebar-kv {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.78rem;
+  padding: 0.22rem 0;
+  gap: 0.5rem;
+}
+
+.cs-sidebar-kv-label {
+  color: var(--cs-text-secondary);
+}
+
+.cs-sidebar-kv-value {
+  color: var(--cs-text-primary);
+  font-weight: 600;
+  text-align: right;
+  word-break: break-word;
+}
+
+/* Top Application Page Header */
+.cs-page-header {
+  background: linear-gradient(135deg, #0D1628 0%, #0F172A 65%, #131B32 100%);
+  border: 1px solid var(--cs-border-subtle);
+  border-top: 2px solid var(--cs-cyan);
+  border-radius: var(--cs-radius-lg);
+  padding: 1.05rem 1.25rem;
+  margin-bottom: 0.9rem;
+  box-shadow: var(--cs-shadow-card);
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0.9rem;
+}
+
+.cs-page-header-left {
+  min-width: 240px;
+  flex: 1 1 420px;
+}
+
+.cs-page-eyebrow {
+  font-size: 0.70rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--cs-cyan);
+  margin-bottom: 0.22rem;
+}
+
+.cs-page-title {
+  font-size: 1.48rem;
+  font-weight: 700;
+  color: var(--cs-text-primary);
+  line-height: 1.2;
+  margin: 0;
+}
+
+.cs-page-desc {
+  font-size: 0.86rem;
+  color: var(--cs-text-secondary);
+  margin-top: 0.3rem;
+  line-height: 1.45;
+}
+
+.cs-header-badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.45rem;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+/* Credibility & Synthetic Notice Bars */
+.cs-credibility-bar {
+  background: rgba(15, 23, 42, 0.72);
+  border: 1px solid var(--cs-border-subtle);
+  border-left: 3px solid var(--cs-violet);
+  border-radius: var(--cs-radius-sm);
+  padding: 0.52rem 0.9rem;
+  margin-bottom: 1rem;
+  font-size: 0.80rem;
+  color: var(--cs-text-secondary);
+  line-height: 1.45;
+}
+
+.cs-synth-banner {
+  background: rgba(127, 29, 29, 0.55);
+  border: 1px solid var(--cs-critical);
+  border-radius: var(--cs-radius-sm);
+  padding: 0.65rem 1rem;
+  margin-bottom: 0.9rem;
+  color: #FEE2E2;
+  font-weight: 700;
+  font-size: 0.86rem;
+}
+
+/* Status Indicators & Severity Badges */
+.cs-status-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.42rem;
+  background: rgba(15, 23, 42, 0.95);
+  border: 1px solid var(--cs-border-subtle);
+  border-radius: 999px;
+  padding: 0.28rem 0.68rem;
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--cs-text-primary);
+  white-space: nowrap;
+}
+
+.cs-status-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  display: inline-block;
+}
+
+.cs-dot-healthy { background-color: var(--cs-healthy); }
+.cs-dot-warning { background-color: var(--cs-warning); }
+.cs-dot-critical { background-color: var(--cs-critical); }
+.cs-dot-cyan { background-color: var(--cs-cyan); }
+.cs-dot-violet { background-color: var(--cs-violet); }
+.cs-dot-muted { background-color: var(--cs-text-muted); }
+
+.cs-badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.16rem 0.52rem;
+  border-radius: 999px;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  border: 1px solid transparent;
+  white-space: nowrap;
+}
+
+.cs-badge-critical { background: rgba(239, 68, 68, 0.16); color: #FCA5A5; border-color: rgba(239, 68, 68, 0.45); }
+.cs-badge-high { background: rgba(249, 115, 22, 0.16); color: #FDBA74; border-color: rgba(249, 115, 22, 0.45); }
+.cs-badge-medium { background: rgba(245, 158, 11, 0.16); color: #FCD34D; border-color: rgba(245, 158, 11, 0.45); }
+.cs-badge-low { background: rgba(16, 185, 129, 0.15); color: #6EE7B7; border-color: rgba(16, 185, 129, 0.40); }
+.cs-badge-informational { background: rgba(56, 189, 248, 0.15); color: #7DD3FC; border-color: rgba(56, 189, 248, 0.40); }
+
+/* Reusable Metric Card Grid */
+.cs-metric-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(168px, 1fr));
+  gap: 0.85rem;
+  margin-bottom: 1rem;
+}
+
+.cs-metric-card {
+  background: var(--cs-bg-surface);
+  border: 1px solid var(--cs-border-subtle);
+  border-radius: var(--cs-radius-md);
+  padding: 0.92rem 1.05rem;
+  box-shadow: var(--cs-shadow-card);
+  transition: border-color 150ms ease, transform 150ms ease;
+}
+
+.cs-metric-card:hover {
+  border-color: var(--cs-border-accent);
+  transform: translateY(-1px);
+}
+
+.cs-metric-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0.4rem;
+  margin-bottom: 0.42rem;
+}
+
+.cs-metric-label {
+  font-size: 0.74rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--cs-text-secondary);
+}
+
+.cs-metric-value {
+  font-size: 1.52rem;
+  font-weight: 700;
+  color: var(--cs-text-primary);
+  line-height: 1.15;
+  font-variant-numeric: tabular-nums;
+}
+
+.cs-metric-value.compact {
+  font-size: 1.04rem;
+  line-height: 1.28;
+  overflow-wrap: anywhere;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+}
+
+.cs-metric-sub {
+  font-size: 0.76rem;
+  color: var(--cs-text-muted);
+  margin-top: 0.35rem;
+  line-height: 1.35;
+}
+
+/* Section Headers */
+.cs-section-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 0.75rem;
+  border-bottom: 1px solid var(--cs-border-subtle);
+  padding-bottom: 0.45rem;
+  margin: 1.1rem 0 0.8rem 0;
+}
+
+.cs-section-title {
+  font-size: 1.02rem;
+  font-weight: 700;
+  color: var(--cs-text-primary);
+  margin: 0;
+}
+
+.cs-section-sub {
+  font-size: 0.80rem;
+  color: var(--cs-text-secondary);
+  margin-top: 0.14rem;
+}
+
+/* Surface / Model / Alert / State Cards */
+.cs-surface-card {
+  background: var(--cs-bg-surface);
+  border: 1px solid var(--cs-border-subtle);
+  border-radius: var(--cs-radius-md);
+  padding: 0.95rem 1.08rem;
+  box-shadow: var(--cs-shadow-card);
+  margin-bottom: 0.8rem;
+}
+
+.cs-model-card {
+  background: linear-gradient(180deg, #0F172A 0%, #0C1324 100%);
+  border: 1px solid var(--cs-border-subtle);
+  border-radius: var(--cs-radius-md);
+  padding: 0.95rem 1.05rem;
+  height: 100%;
+}
+
+.cs-model-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 0.45rem;
+}
+
+.cs-model-card-title {
+  font-size: 0.92rem;
+  font-weight: 700;
+  color: var(--cs-text-primary);
+}
+
+.cs-model-card-desc {
+  font-size: 0.80rem;
+  color: var(--cs-text-secondary);
+  line-height: 1.42;
+  margin-bottom: 0.55rem;
+}
+
+.cs-model-card-stat {
+  font-size: 0.80rem;
+  color: var(--cs-cyan);
+  font-weight: 600;
+}
+
+.cs-alert-card {
+  background: var(--cs-bg-surface);
+  border: 1px solid var(--cs-border-subtle);
+  border-left: 3px solid var(--cs-cyan);
+  border-radius: var(--cs-radius-md);
+  padding: 0.8rem 0.95rem;
+  margin-bottom: 0.55rem;
+}
+
+.cs-alert-card.sev-critical { border-left-color: var(--cs-critical); }
+.cs-alert-card.sev-high { border-left-color: var(--cs-high); }
+.cs-alert-card.sev-medium { border-left-color: var(--cs-warning); }
+.cs-alert-card.sev-low { border-left-color: var(--cs-healthy); }
+
+.cs-alert-card-head {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0.4rem;
+  margin-bottom: 0.3rem;
+}
+
+.cs-alert-id {
+  font-size: 0.80rem;
+  font-weight: 700;
+  color: var(--cs-text-primary);
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+}
+
+.cs-alert-meta {
+  font-size: 0.78rem;
+  color: var(--cs-text-secondary);
+  margin-bottom: 0.28rem;
+}
+
+.cs-alert-reason {
+  font-size: 0.80rem;
+  color: var(--cs-text-primary);
+  line-height: 1.4;
+}
+
+.cs-state-box {
+  background: var(--cs-bg-surface);
+  border: 1px dashed rgba(148, 163, 184, 0.28);
+  border-radius: var(--cs-radius-md);
+  padding: 1.25rem;
+  text-align: center;
+  margin: 0.65rem 0;
+}
+
+.cs-state-box.error {
+  border-style: solid;
+  border-color: rgba(239, 68, 68, 0.45);
+  background: rgba(127, 29, 29, 0.22);
+}
+
+.cs-state-title {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--cs-text-primary);
+  margin-bottom: 0.25rem;
+}
+
+.cs-state-body {
+  font-size: 0.83rem;
+  color: var(--cs-text-secondary);
+}
+
+/* Verdict Panel */
+.cs-verdict-box {
+  background: linear-gradient(135deg, #101A30 0%, #0E1729 100%);
+  border: 1px solid rgba(245, 158, 11, 0.40);
+  border-left: 4px solid var(--cs-warning);
+  border-radius: var(--cs-radius-md);
+  padding: 1rem 1.15rem;
+  margin-bottom: 0.9rem;
+}
+
+.cs-verdict-box.outperforms {
+  border-color: rgba(16, 185, 129, 0.45);
+  border-left-color: var(--cs-healthy);
+}
+
+/* Responsive Adjustments */
+@media (max-width: 900px) {
+  .block-container {
+    padding-left: 1rem !important;
+    padding-right: 1rem !important;
+  }
+  .cs-page-title {
+    font-size: 1.24rem;
+  }
+  .cs-header-badges {
+    justify-content: flex-start;
+  }
+}
+
+@media (max-width: 640px) {
+  .cs-metric-grid {
+    grid-template-columns: 1fr;
+  }
+  .cs-metric-value {
+    font-size: 1.32rem;
+  }
+}

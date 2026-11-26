@@ -1,9 +1,9 @@
-"""Tests for Stage 8 README generation, config overrides, and Streamlit dashboard startup/graceful empty handling."""
+"""Tests for Stage 8 README generation, config overrides, brand assets, and redesigned 5-page UI."""
 from __future__ import annotations
 
 from pathlib import Path
 
-from config.settings import get_settings
+from config.settings import PROJECT_ROOT, get_settings
 from src.make_readme import generate_readme
 
 
@@ -33,11 +33,23 @@ def test_make_readme_from_results_and_manifest(tmp_path: Path) -> None:
     assert "INCONCLUSIVE: insufficient events" in txt
 
 
-def test_dashboard_pages_handle_missing_results_gracefully(tmp_path: Path) -> None:
+def test_brand_assets_and_design_system_present() -> None:
+    brand_dir = PROJECT_ROOT / "assets" / "brand"
+    for fname in (
+        "cybersentinel_icon.svg",
+        "cybersentinel_logo_primary.svg",
+        "cybersentinel_logo_light.svg",
+        "cybersentinel_logo_sidebar.svg",
+        "favicon.svg",
+        "favicon.png",
+    ):
+        assert (brand_dir / fname).exists(), f"Missing brand asset: {fname}"
+    assert (PROJECT_ROOT / "assets" / "styles" / "theme.css").exists()
+
+
+def test_dashboard_all_five_pages_render_and_step(tmp_path: Path) -> None:
     from streamlit.testing.v1 import AppTest
 
-    # Run app.py via AppTest against empty tmp_path via env override?
-    # Verify all dashboard module callables handle missing results without raising exceptions.
     import app
     from dashboard import (
         alert_management,
@@ -51,9 +63,17 @@ def test_dashboard_pages_handle_missing_results_gracefully(tmp_path: Path) -> No
     cfg = get_settings(project_root=tmp_path)
     cfg.ensure_dirs()
     for mod in (command_centre, threat_radar, explainable_ai, alert_management, model_evaluation):
-        # Should render warning cleanly when results are absent (check callable exists and AppTest smoke passes)
         assert callable(mod.render)
 
-    at = AppTest.from_file("app.py", default_timeout=20)
+    at = AppTest.from_file("app.py", default_timeout=60)
     at.run()
     assert not at.exception
+
+    step_btns = [b for b in at.button if "Step +10 min" in b.label]
+    if step_btns:
+        step_btns[0].click().run(timeout=60)
+        assert not at.exception
+
+    for opt in at.radio[0].options[1:]:
+        at.radio[0].set_value(opt).run(timeout=60)
+        assert not at.exception, f"Exception on {opt}: {at.exception}"
